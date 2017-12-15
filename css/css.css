@@ -1,0 +1,62 @@
+
+body {
+    background: #eeeeee;
+}
+
+canvas {
+    background: #ffffff;
+}
+.content{
+    overflow: hidden;
+}
+.left{
+    float: left;
+}
+.right{
+    width: 400px;
+    padding:0 0 0 50px ;
+    float: left;
+}
+#Start{
+    width: 240px;
+    height: 44px;
+    background: url(../images/fix-pag.png) no-repeat;
+}
+.box{
+    width: 190px;
+    height: 45px;
+    margin-top: 10px;
+    margin-left: 50px;
+    overflow: hidden;
+}
+#Pause{
+    width: 45px;
+    height: 45px;
+    float: left;
+    background:url(../images/fix-pag.png) 0 -45px no-repeat; ;
+}
+#Continue{
+    width: 45px;
+    height: 45px;
+    float: left;
+    margin-left: 30px;
+    background:url(../images/fix-pag.png) -45px -45px no-repeat; ;
+}
+.prompt{
+    width: 240px;
+    height: 50px;
+    line-height: 50px;
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+.prompt .ico_c_arrows {
+    display: inline-block;
+    height: 40px;
+    width: 53px;
+    background:url(images/icon-keyboard.png) 0 -578px no-repeat;
+}
+.snakescore{
+    height: 100px;
+    font: normal 600 18px/100px "Microsoft Yahei" ;
+}
