@@ -8,6 +8,8 @@ canvas {
 }
 .content{
     overflow: hidden;
+    width: 800px;
+    margin: 60px auto;
 }
 .left{
     float: left;
