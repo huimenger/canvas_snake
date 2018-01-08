@@ -2,6 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8"/>
+    <title>贪吃蛇小游戏</title>
     <link rel="stylesheet" href="css/css.css">
 </head>
 <body>
@@ -11,14 +12,22 @@
             <canvas id="cvs" width="300" height="300"></canvas>
         </div>
         <div class="right">
-            <!-- 显示分数的span #score -->
-            <div class="snakescore"><span>您的分数是 : </span><span id="score">0</span></div>
+            <!-- 显示分数的span#score -->
+            <div class="snakescore">
+                <span>您的分数是 : </span>
+                <span id="score">0</span>
+            </div>
             <!-- 游戏操作提示 -->
-            <div class="prompt">操作方法：<span class="ico_c_arrows"></span></div>
-            <!-- 游戏开始的按钮，点击调用startGame()函数，该函数后面完善 -->
+            <div class="prompt">
+                操作方法：
+                <span class="ico_c_arrows"></span>
+            </div>
+            <!-- 游戏开始的按钮-->
             <div id="Start"></div>
             <div class="box">
+                <!-- 游戏暂停的按钮-->
                 <div id="Pause"></div>
+                <!-- 游戏继续的按钮-->
                 <div id="Continue"></div>
             </div>
         </div>
