@@ -1,15 +1,15 @@
 window.onload = function(){
     //获取我们所需要的元素
-//canvas
+    //canvas
     var canvas = document.getElementById('cvs');
     var ctx = canvas.getContext('2d');
-//分数
+    //分数
     var s = document.getElementById('score');
-//游戏开始按钮
+    //游戏开始按钮
     var start = document.getElementById('Start');
-//暂停按钮
+    //暂停按钮
     var pause = document.getElementById('Pause');
-//继续按钮
+    //继续按钮
     var ctn = document.getElementById('Continue');
     var mWidth = 300; //当前可视区域的宽，即canvas的宽
     var mHeight = 300;  //当前可视区域的高，即canvas的高
@@ -20,8 +20,8 @@ window.onload = function(){
     var score = 0; //记录成绩的变量初始化
     var timeLoop = 200; //初始化时间
 
-//注意本对象，并不改变其在画布上的样子，只是负责改变状态。
-//蛇对象
+    //注意本对象，并不改变其在画布上的样子，只是负责改变状态。
+    //蛇对象
     var snake = {
         startX : 3, //开始头x坐标
         startY : 0, //开始头y坐标
@@ -31,7 +31,6 @@ window.onload = function(){
         mes : [{x : 3 , y : 0} , {x : 2 , y : 0} , {x : 1 , y : 0}], //初始化蛇的身体坐标，初始长度3
         //坐标为格子坐标非像素坐标
 
-        //初始化
         //添加一个格子的方法
         add : function(){
             //判断当前尾部方向
@@ -130,7 +129,7 @@ window.onload = function(){
                 pointObj.setPoint(); //画一个节点
                 score++; //加分
                 s.innerHTML = score; //显示分数
-                gameSpeed();
+                gameSpeed();//加速
             }
         }
     };
@@ -162,7 +161,7 @@ window.onload = function(){
         }
     };
 
-//蛇，动
+    //蛇，动
     function snakeMove(){
         var method = 'move' + snake.currOri + '()'; //调用方向函数
         eval('snake.' + method); //执行方向方法
@@ -177,10 +176,12 @@ window.onload = function(){
         }
     }
 
-//开始游戏
+    //开始游戏
     function startGame(){
         clearInterval(window.looper); //终止游戏主循环
         //初始化状态
+        score = 0;
+        s.innerHTML = score; //显示分数
         snake.mes = [{x : 3 , y : 0} , {x : 2 , y : 0} , {x : 1 , y : 0}];
         snake.currOri = 'right';
         ctx.beginPath();  //开始画笔
@@ -193,18 +194,18 @@ window.onload = function(){
         window.looper = setInterval(snakeMove, timeLoop);
     }
 
-//暂停
+    //暂停
     function pauseGame(){
         clearInterval(window.looper);
     }
-
+    //继续
     function continueGame(){
         clearInterval(window.looper); //终止游戏主循环
         //游戏主循环
         window.looper = setInterval(snakeMove, timeLoop);
 
     }
-
+    //加速
     function gameSpeed(){
         timeLoop = (timeLoop > 20)?(timeLoop - 2 ):20;
         clearInterval(window.looper); //终止游戏主循环
