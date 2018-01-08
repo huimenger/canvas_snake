@@ -131,6 +131,17 @@ window.onload = function(){
                 s.innerHTML = score; //显示分数
                 gameSpeed();//加速
             }
+        },
+        //画蛇
+        setSnake:function(){
+            for(var i = 0 ; i < snake.mes.length ; i++){
+                ctx.fillRect(snake.mes[i].x * unit , snake.mes[i].y * unit , unit ,unit);
+            }
+            ctx.stroke();
+        },
+        //清屏
+        clear:function(){
+            ctx.clearRect(0 , 0 , mWidth , mHeight);
         }
     };
 
@@ -147,29 +158,15 @@ window.onload = function(){
         }
     };
 
-    var draw = {
-        //画蛇
-        setSnake:function(){
-            for(var i = 0 ; i < snake.mes.length ; i++){
-                ctx.fillRect(snake.mes[i].x * unit , snake.mes[i].y * unit , unit ,unit);
-            }
-            ctx.stroke();
-        },
-        //清屏
-        clear:function(){
-            ctx.clearRect(0 , 0 , mWidth , mHeight);
-        }
-    };
-
     //蛇，动
     function snakeMove(){
         var method = 'move' + snake.currOri + '()'; //调用方向函数
         eval('snake.' + method); //执行方向方法
-        draw.clear(); //清理屏幕
+        snake.clear(); //清理屏幕
         ctx.beginPath(); //开始绘制
         snake.handleAdd(); //处理吃东西
         pointObj.setPoint(point); //设置点
-        draw.setSnake(); //画蛇
+        snake.setSnake(); //画蛇
         if(snake.isCrashWell(mwid , mhei)||snake.isCrashSelf()){ //是否撞墙，未使用是否吃自己。想用调用snake.isCrashSelf方法。
             clearInterval(window.looper);
             alert('游戏结束，您的得分是 ' + score);
@@ -187,7 +184,7 @@ window.onload = function(){
         ctx.beginPath();  //开始画笔
         pointObj.getPoint(); //设置点
         pointObj.setPoint();
-        draw.setSnake(); //画蛇
+        snake.setSnake(); //画蛇
         //画
         ctx.stroke();
         //游戏主循环
